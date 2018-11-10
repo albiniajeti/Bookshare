@@ -1,21 +1,8 @@
+<?php include "includes/header.php"; ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-
-    <title>Book Store| Signup</title>
-  
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/4-col-portfolio.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-</head>
 <body>
+    
+<?php include "includes/menu.php"; ?>
 
     <section class="menu-section">
         <div class="container">
@@ -53,11 +40,15 @@
                 <div class="panel-body">
                     <form name="signup" method="post" onSubmit="return valid();">
                         <div class="form-group">
-                            <label>Enter Full Name</label>
+                            <label>Enter First Name</label>
                             <input class="form-control" type="text" name="fullanme" autocomplete="off" required />
                         </div>
                         <div class="form-group">
-                            <label>Mobile Number :</label>
+                            <label>Enter Last Name</label>
+                            <input class="form-control" type="text" name="fullanme" autocomplete="off" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Mobile Username</label>
                             <input class="form-control" type="text" name="mobileno" maxlength="10" autocomplete="off" required />
                         </div>
                                                                         
@@ -70,13 +61,8 @@
                         <div class="form-group">
                             <label>Enter Password</label>
                             <input class="form-control" type="password" name="password" autocomplete="off" required  />
-                            </div>
-
-                        <div class="form-group">
-                            <label>Confirm Password </label>
-                            <input class="form-control"  type="password" name="confirmpassword" autocomplete="off" required  />
                         </div>
-                                                  
+                                              
                         <button type="submit" name="signup" class="btn btn-danger" id="submit">Register Now </button>
 
                     </form>
