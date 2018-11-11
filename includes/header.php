@@ -15,5 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/4-col-portfolio.css" rel="stylesheet">
+    
+    <?php include "db.php" ?>
 
   </head>
