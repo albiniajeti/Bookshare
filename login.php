@@ -78,18 +78,11 @@
     
 <div class="content-wrapper">
     <div class="container">
-        <div class="row pad-botm">
-            <div class="col-md-12">
-                <h4 class="header-line">USER LOGIN</h4>
-            </div>
-        </div>
-
-
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" >
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <h1>LOGIN FORM</h1>
+                        <h1>LOGIN</h1>
                     </div>
                     <div class="panel-body">
 
