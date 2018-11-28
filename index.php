@@ -1,8 +1,8 @@
 <?php include "includes/header.php"; ?>
 
 <body>
-
 <?php include "includes/menu.php"; ?>
+
 
     <!-- Page Content -->
     <div class="container">
@@ -111,17 +111,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <?php include "includes/footer.php"; ?>
   </body>
 
 </html>
