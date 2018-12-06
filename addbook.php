@@ -23,9 +23,11 @@
                     <div class="panel-body">
 
                     <form action = "" method="post">
+<!--
 
                     <label>Name of book owner: </label>
                     <input class="form-control" name="ownername" /><br />
+-->
 
                     <label>Book Author: </label>
                     <input class="form-control" name="author"  /><br />

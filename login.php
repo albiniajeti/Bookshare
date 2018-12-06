@@ -3,23 +3,22 @@
 
 <?php include "includes/menu.php"; ?>
 
-<?php
+<?php 
 
-    $emailErr = $passwordErr = "";
-    $emailValid = $passwordValid = true;
-
+    $emailValid = $passwordValid = true;    
+    
     if(isset($_POST['login'])){
         global $connection;
 
         $email = $_POST['email'];
         $password = $_POST['password'];
-
+        
         $email = mysqli_real_escape_string($connection, $email);
         $password = mysqli_real_escape_string($connection, $password);
 
         $emailErr = $passwordErr = "";
-        $emailValid = $passwordValid = true;
-
+        $emailValid = $passwordValid = true;  
+        
                 //Validate Username
         if(empty($email)){
             $emailErr = 'Email is required';
@@ -30,7 +29,7 @@
 
             $row = mysqli_fetch_assoc($result);
             $count = $row['count'];
-
+          
             if ($count == 0){
                 $emailErr = 'Sorry, this email does not exist';
                 $emailValid = false;
@@ -40,39 +39,37 @@
         if (empty($password)) {
             $passwordErr = "Password is required";
             $passwordValid = false;
+        }else {
+            // check if password is strong enough
+            if (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,20}$/", $password)) {
+            $passwordErr = "Password should have minimum eight characters, have at least one capital letter and one number"; 
+            $passwordValid = false;
+            }     
         }
-
+        
          if($emailValid == true && $passwordValid == true){
             $query = "SELECT * FROM users WHERE email = '{$email}' ";
             $selectQuery = mysqli_query($connection, $query);
-
+      
             while($row = mysqli_fetch_array($selectQuery)){
-
-                 $dbUserId = $row['user_id'];
+            
+                 $dbUserId = $row['id'];
                  $dbEmail = $row['email'];
                  $dbPassword = $row['password'];
                  $dbFirstname = $row['first_name'];
                  $dbLastname = $row['last_name'];
 
-                header("Location: success.php");
-
-//                if(password_verify($password, $dbPassword)){
-//
-//                    $_SESSION['username'] = $dbUsername;
-//                    $_SESSION['user_firstname'] = $dbFirstname;
-//                    $_SESSION['user_lastname'] = $dbLastname;
-//                    $_SESSION['user_role'] = $dbUserRole;
-//
-//                    if ($_SESSION['user_role'] == 'Admin'){
-//                        header("Location: admin/adminIndex.php");
-//                    }else{
-//                        header("Location: index.php");
-//                    }
-//                }
+                if(password_verify($password, $dbPassword)){
+                    $_SESSION['loggedIn'] = true;  
+                    $_SESSION['userId'] = $dbUserId;
+                    header("Location: index.php");
+                }                
             }
-        }
+        }else{
+            echo "<p class='alert alert-danger' style = 'text-align: center'>Please make sure your email and password are correct.</p>";            
+         }
     }
-    ?>
+?> 
 
 
 
@@ -99,14 +96,12 @@
                         <div class="form-group">
                             <label>Email :</label>
                             <input class="form-control" type="text" name="email" required autocomplete="off" />
-                            <span class="error"> <?php echo $emailErr;?></span>
                         </div>
 
                         <div class="form-group">
                             <label>Password :</label>
                             <input class="form-control" type="password" name="password" required autocomplete="off"  />
                             <p class="help-block"><a href="user-forgot-password.php">Forgot Password</a></p>
-                            <span class="error"> <?php echo $passwordErr;?></span>
                         </div>
 
 

@@ -96,7 +96,7 @@
             }
         }
 
-//        $password = password_hash ($password, PASSWORD_BCRYPT, array('cost' => 12));
+        $password = password_hash ($password, PASSWORD_BCRYPT, array('cost' => 12));
 
         if($firstNameValid == true && $lastNameValid  == true && $emailValid  == true && $passwordValid == true){
         $query = "insert into users (password, email, first_name, last_name)
