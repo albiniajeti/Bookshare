@@ -22,27 +22,20 @@
                     </div>
                     <div class="panel-body">
 
-                    <form action = "" method="post">
-<!--
+                    <form action = "includes/functions.php" method="post" enctype="multipart/form-data">
+                        <label>Book Author: </label>
+                        <input class="form-control" name="author"  /><br />
 
-                    <label>Name of book owner: </label>
-                    <input class="form-control" name="ownername" /><br />
--->
+                        <label>Book Title: </label>
+                        <input class="form-control" name="title"   /><br />
 
-                    <label>Book Author: </label>
-                    <input class="form-control" name="author"  /><br />
-                    
-                    <label>Book Title: </label>
-                    <input class="form-control" name="booktitle"   /><br />
+                        <label>Description of the book: </label>
+                        <textarea class="form-control" name="description" placeholder="It can be a quick description about the book!" style="height:150px;"></textarea><br />
 
-                    <label>Description of the book: </label>
-                    <textarea class="form-control" name="text" placeholder="It can be a quick description about the book!" style="height:150px;"></textarea><br />
+                        <input  type='file' class="btn btn-primary" name="image"/><br />
+                        <br />
 
-                    <input  type='file' class="btn btn-primary" onchange="readURL(this);"/><br />
-                    <br />
-                    
-                    <input class="btn btn-primary" type="submit" value="Upload" />
-                    
+                        <input class="btn btn-primary" type="submit" value="Upload" name="newBook"/>                    
                     </form>
 
                     </div>
