@@ -1,0 +1,89 @@
+html, body {
+    height: 100%;
+}
+
+
+
+#border_hor {
+
+   border: 1px solid #4c4c4c;
+   margin-bottom: 10px;
+}
+
+
+.image{
+   padding: 20px;
+   text-align: center;
+}
+
+img{
+   width: 100px;
+}
+
+h3{
+   padding: 0px 0px 10px 20px;
+   text-align: center;
+}
+
+
+#add_btn{
+    background-color: #274056;
+    border-radius: 30px;
+    border-color: #274056;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 40px;
+    color:white;
+}
+
+#add_btn:hover{
+   background-color: #4f83b0;
+}
+
+.hoverS:hover{
+   background-color: #4f83b0;
+}
+
+
+.space{
+   margin-top: 20px;
+}
+
+
+@media only screen and (max-width:450px){
+
+   img{
+      width: 60px;
+   }
+
+   h3{
+      font-size: 20px;
+   }
+
+   .paragraph{
+      font-size: 20px;
+   }
+
+   #imgCart{
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      display: block;
+      margin: auto;
+   }
+
+   .require{
+      border-bottom: 1px dashed black;
+   }
+
+   .image{
+      width: 200px;
+      text-align: center;
+
+   }
+
+
+
+
+} 
+
