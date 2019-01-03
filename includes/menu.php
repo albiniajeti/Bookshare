@@ -21,7 +21,23 @@
               </a>
             </li>
 -->
-            <input class="form-control mr-sm-4" type="search" placeholder="Search" aria-label="Search">
+            <form action = "" method="post">
+                <input class="form-control mr-sm-4" name="search" type="search" placeholder="Search" aria-label="Search">
+<!--                <input type="button hidden" name="search">-->
+<!--
+                <div class="input-group">
+
+                    <input type="text" class="form-control" name = "search">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit" name = "submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    </span>
+
+                </div>
+-->
+            </form>
+            
             <?php
                 if(!isset($_SESSION['loggedIn'])){?>
                     <li class="nav-item dropdown">
@@ -36,8 +52,9 @@
                             <a class="dropdown-item" href="missingbook.php">Report Missing Book</a>
                             <a class="dropdown-item" href="bookrequests.php">Book Requests</a>
                             <a class="dropdown-item" href="editprofile.php">Edit Profile</a>
+                            <a class="dropdown-item" href="editprofile.php">My Books</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Sign Out</a>
+                            <a class="dropdown-item" href="logout.php">Sign Out</a>
                           </div>
                     </li>                    
         <?php  }

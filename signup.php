@@ -54,7 +54,7 @@
             $emailErr = "Email is required";
             $emailValid = false;
         }else{
-            $query = "SELECT * from users where email = '{$email}'";
+            $query = "SELECT count(*) as count from users where email = '{$email}'";
             $result = mysqli_query($connection, $query);
 
              if(!$result ) {

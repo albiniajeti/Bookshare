@@ -21,3 +21,5 @@
     <?php include "db.php" ?>
 
   </head>
+</html>
+<body>

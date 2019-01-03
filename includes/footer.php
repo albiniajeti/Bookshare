@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
 
-  <body>
     <br />
+
 <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
-      <!-- /.container -->
+    <footer class="page-footer font-small special-color-dark navbar-dark bg-dark bottom">
+        <div class="footer-copyright text-center py-3 text-white">© 2018 Copyright
+        </div>
     </footer>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 
 
   </body>

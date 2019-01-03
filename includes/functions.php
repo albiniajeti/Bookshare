@@ -22,7 +22,7 @@ if(isset($_POST['newBook'])){
     $title = mysqli_real_escape_string($connection, $title);
     $description = mysqli_real_escape_string($connection, $description);
     
-    $query = "insert into books(book_name, book_owner, book_image, book_description) values('{$title}', '{$user}', '{$image}', '{$description}')";
+    $query = "insert into books(book_name, book_owner, book_image, book_description, book_author) values('{$title}', '{$user}', '{$image}', '{$description}', '{$author}')";
     $addBook = mysqli_query($connection, $query);
     
     if($addBook){
