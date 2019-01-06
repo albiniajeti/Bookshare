@@ -8,6 +8,7 @@ if(isset($_POST['newBook'])){
     $author = $_POST['author'];
     $title = $_POST['title'];
     $description = $_POST['description'];
+    $available = $_POST['available'];
     
 //    if(isset($_FILES['image'])){
 //        echo $_FILES['image']['tmp_name'];
@@ -22,7 +23,7 @@ if(isset($_POST['newBook'])){
     $title = mysqli_real_escape_string($connection, $title);
     $description = mysqli_real_escape_string($connection, $description);
     
-    $query = "insert into books(book_name, book_owner, book_image, book_description, book_author) values('{$title}', '{$user}', '{$image}', '{$description}', '{$author}')";
+    $query = "insert into books(book_name, book_owner, book_image, book_description, book_author, available) values('{$title}', '{$user}', '{$image}', '{$description}', '{$author}', '{$available}')";
     $addBook = mysqli_query($connection, $query);
     
     if($addBook){

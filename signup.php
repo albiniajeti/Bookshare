@@ -158,7 +158,7 @@
                                     <input class="form-control"  type="password" name="confirmPassword"/>
                                 </div>
 
-                                <button type="submit" name="signup" class="btn btn-danger" id="submit">Register</button>
+                                <button type="submit" name="signup" class="btn btn-primary" id="submit">Register</button>
                                 |
                                 <a href="login.php">Already a user</a>
 

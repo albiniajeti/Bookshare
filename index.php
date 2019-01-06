@@ -17,8 +17,7 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h1 class="my-4  text-center">It's a book hub
-      </h1>
+        <h1 class="my-4  text-center">We got books</h1>
       <div class="row">
         
         <?php
@@ -63,7 +62,7 @@
         <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <a href="book.php?bookId=<?= $bookId; ?>"><img class="card-img-top" src="images/<?=$bookImage ?>" alt=""></a>
-            <div class="card-body">
+            <div class="card-body" style="margin-bottom: 0px;">
               <p class="card-title">
                 <a href="book.php?bookId=<?= $bookId; ?>"><?=$bookTitle ?></a>
               </p>
@@ -75,37 +74,8 @@
     <?php } ?>
       </div>
         
-      <!-- /.row -->
-
-      <!-- Pagination -->
-<!--
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">1</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#">3</a>
-        </li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
--->
-        
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
+        <nav aria-label="Page navigation example" >
+          <ul class="pagination justify-content-center" >
             <li class="page-item ">
               <a class="page-link" href="index.php?page=<?php echo($page-1); ?>">Previous</a>
             </li>

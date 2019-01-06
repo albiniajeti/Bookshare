@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="  height: 100%;
+  box-sizing: border-box;">
 
   <head>
 
@@ -22,4 +23,7 @@
 
   </head>
 </html>
-<body>
+<body style="  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;">

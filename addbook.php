@@ -32,6 +32,12 @@
                         <label>Description of the book: </label>
                         <textarea class="form-control" name="description" placeholder="It can be a quick description about the book!" style="height:150px;"></textarea><br />
 
+                        <label>Book availability</label><br/>
+                        <select name="available" class="form-group">
+                            <option value="1">Available</option>
+                            <option value="0">Unavailable</option>
+                        </select><br/>
+                        
                         <input  type='file' class="btn btn-primary" name="image"/><br />
                         <br />
 
