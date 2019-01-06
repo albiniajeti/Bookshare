@@ -34,12 +34,48 @@ if(isset($_POST['newBook'])){
 }
 
 
+if(isset($_POST['requestBook'])){
+    
+    $book = $_POST['book'];
+    $asker = $_SESSION['userId'];
+    $giver = $_POST['owner'];
+    $status = "pending";
+    
+    $query = "insert into requests(book, asker, giver, status) values('{$book}', '{$asker}', '{$giver}', '{$status}')";
+    $result = mysqli_query($connection, $query);
+    
+    if($result){
+        header("Location: ../index.php?message=success");
+    }else{
+        header("Location: ../index.php?message=failure"); 
+    }
+}
 
 
+if(isset($_POST['deleteBook'])){
+    
+  $book = $_POST['bookToDelete']; 
+    
+    $query = "delete from books where id = '{$book}'";
+    $result = mysqli_query($connection, $query);
+    
+    header("Location: ../myBooks.php");
+}
 
+if(isset($_POST['changeAvailability'])){
+   
+    $book = $_POST['bookToDelete']; 
+    $bookStatus = $_POST['bookStatus'];
+    
+    if($bookStatus == 1){
+        $query = "update books set available = '0' where id = '{$book}'";
+    }else{
+        $query = "update books set available = '1' where id = '{$book}'";
+    }
 
-
-
+    $result = mysqli_query($connection, $query);   
+    header("Location: ../myBooks.php");
+}
 
 
 

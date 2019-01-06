@@ -30,7 +30,7 @@
                         <input class="form-control" name="title"   /><br />
 
                         <label>Description of the book: </label>
-                        <textarea class="form-control" name="description" placeholder="It can be a quick description about the book!" style="height:150px;"></textarea><br />
+                        <textarea class="form-control" name="description" placeholder="Please enter some details about the book!" style="height:150px;"></textarea><br />
 
                         <label>Book availability</label><br/>
                         <select name="available" class="form-group">

@@ -22,11 +22,8 @@
     }
 
 ?>
-
-
-  
-<br>
     <div class="container">
+
 
       <!-- Portfolio Item Heading -->
       <h1 class="my-4"><?= $title; ?>
@@ -44,10 +41,11 @@
           <h3 class="my-3">Book Description</h3>
           <p><?= $description; ?></p>
             <div style="position: absolute; bottom: 0;">
-                <form action="" method="post">
-                    <input type="hidden" value="<?= $id; ?>">
+                <form action="includes/functions.php" method="post">
+                    <input type="hidden" value="<?= $id; ?>" name="book">
+                    <input type="hidden" value="<?= $owner; ?>" name="owner">
                     <?php if($available){?>
-                        <button class="btn btn-success btn-block">Request Book</button>
+                        <button class="btn btn-success btn-block" name="requestBook">Request Book</button>
                     <?php
                     }else{?>
                         <button class="btn btn-secondary btn-block" disabled>Unavailable</button>
