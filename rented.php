@@ -12,11 +12,11 @@
     <?php
         
         $user = $_SESSION['userId'];
-        $query = "select * from books where book_owner = '{$user}'";
+        $query = "select * from books where book_renter = '{$user}'";
         $results = mysqli_query($connection, $query);
 
         if(mysqli_num_rows($results) == 0){
-            echo "<h1 class='text-center'>You don't have any books at the moment</h1>";
+            echo "<h1 class='text-center'>You don't have any rented books at the moment</h1>";
         }
         
         while($row = mysqli_fetch_assoc($results)){
@@ -34,13 +34,14 @@
         ?>
         <div class="row" >
             <div class="col-md-7">
-              <a href="#">
+              <a href="">
                 <img class="img-thumbnail" style="max-width:300px;" src="images/<?= $bookImage; ?>" alt="">
               </a>
             </div>
             <div class="col-md-5" style="position: relative;">
               <h3><?= $bookTitle; ?></h3>
                 <div style="position:absolute; bottom: 0;">
+<!--
                     <?php
                         if($rented == 1){
                             $today = date('Y-m-d');
@@ -76,7 +77,26 @@
                     <?php
                         }
                     ?>
+-->
 
+                    <form action="includes/functions.php" method="post">
+                        <input type="hidden" value="<?= $bookId; ?>" name="book">
+                        <?php
+                            $today = date('Y-m-d');
+                            if($today > $expectedAt){
+                                if($missing == 1){
+                                    echo "<button class='btn btn-danger btn-block' disabled>Book reported missing by owner</button>";
+                                }else{
+                                    echo "<button class='btn btn-danger btn-block' disabled>Book was due on '{$expectedAt}'</button>";                 
+                                }
+                                echo "<button class='btn btn-danger btn-block' name='returnBook' type='submit'>Return book</button>";
+                            }else{
+                                echo "<button class='btn btn-success btn-block' disabled>Book is due on '{$expectedAt}'</button>";
+                                echo "<button class='btn btn-primary btn-block' name='returnBook' type='submit'>Return book</button>";
+                            }
+
+                        ?>
+                    </form>
                 </div>
             </div>
         </div>

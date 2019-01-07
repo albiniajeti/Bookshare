@@ -61,6 +61,7 @@ ul {
                                             <form action="includes/functions.php" method="post">
                                                 <input type="hidden" value="<?= $requestId; ?>" name="request">
                                                 <input type="hidden" value="<?= $book; ?>" name="bookId">
+                                                <input type="hidden" value="<?= $asker; ?>" name="renter">
                                                 <input class="btn btn-primary" name="acceptRequest" type="submit" value="Accept" />
                                                 <input class="btn btn-danger"  name="refuseRequest" type="submit" value="Refuse" />
                                             </form>

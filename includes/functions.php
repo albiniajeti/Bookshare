@@ -81,11 +81,12 @@ if(isset($_POST['acceptRequest'])){
    
     $request = $_POST['request']; 
     $book = $_POST['bookId']; 
+    $renter = $_POST['renter'];
 
     $query = "update requests set status = 'accepted' where id = '{$request}'";
     $result = mysqli_query($connection, $query); 
     
-    $query2 = "update books set available = '0', expected_at = (DATE_ADD(now(),INTERVAL 2 WEEK)), rented =  '1' where id = '{$book}'";
+    $query2 = "update books set available = '0', expected_at = (DATE_ADD(now(),INTERVAL 2 WEEK)), rented =  '1', book_renter = '{$renter}' where id = '{$book}'";
     $result2 = mysqli_query($connection, $query2);     
     
     header("Location: ../bookrequests.php");
@@ -111,6 +112,17 @@ if(isset($_POST['reportMissing'])){
     header("Location: ../myBooks.php");
 }
 
+if(isset($_POST['returnBook'])){
+    
+    $book = $_POST['book'];
+    
+    $query = "update books set available = '1', expected_at = '0000-00-00', rented = '0', missing = '0', book_renter = '' where id = '{$book}'";
+    $results = mysqli_query($connection, $query);
+    
+    if($results){
+        header("Location: ../rented.php");
+    }
+}
 
 
 

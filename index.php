@@ -51,14 +51,7 @@
                 $count = ceil($count/8);
                     
                 if(empty($book)){
-                    if(isset($_SESSION['userId'])){
-                        $user = $_SESSION['userId'];
-                        $query = "select * from books where book_owner != '{$user}' order by id desc limit $page1, 8";
-                    }else{
-                        $query = "select * from books order by id desc limit $page1, 8";
-                    }
-                    $query2 = $query;
-                    $query = $query2;
+                    $query = "select * from books order by id desc limit $page1, 8";
                 }else{
                     $query = "select * from books where book_name like '%$book%' order by id desc limit $page1, 8";
                 }
