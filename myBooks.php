@@ -23,6 +23,9 @@
              $bookImage = $row['book_image'];
              $bookAuthor = $row['book_author'];
              $available = $row['available'];
+             $expectedAt = $row['expected_at'];
+             $rented = $row['rented'];
+             $missing = $row['missing'];
              $bookDescription = substr($row['book_description'], 0, 200);
         ?>
         <div class="row" >
@@ -34,18 +37,42 @@
             <div class="col-md-5" style="position: relative;">
               <h3><?= $bookTitle; ?></h3>
                 <div style="position:absolute; bottom: 0;">
-                    <form action="includes/functions.php" method="post">
-                        <input type="hidden" name="bookToDelete" value="<?= $bookId; ?>">
-                        <input type="hidden" name="bookStatus" value="<?= $available; ?>">
-                        <?php 
-                            if($available == 1){
-                                echo "<button class='btn btn-secondary btn-block' name='changeAvailability' type='submit'>Make Unavailable</button>";
+                    <?php
+                        if($rented == 1){
+                            $today = date('Y-m-d');
+                            if(($expectedAt < $today) && ($expectedAt != "0000-00-00")){
+                                if($missing == 1){
+                                    echo "<button class='btn btn-danger btn-block' disabled>Book reported missing</button>";
+                                }else{?>
+                                   <form action="includes/functions.php" method="post">
+                                    <input type="hidden" name="bookToDelete" value="<?= $bookId; ?>">
+                                    <button class='btn btn-danger btn-block' name='reportMissing' type='submit'>Book delayed. Report Missing!!!</button>
+                                   </form>  
+                             <?php  
+                                     }
                             }else{
-                                echo "<button class='btn btn-secondary btn-block' name='changeAvailability' type='submit'>Make Available</button>";
+                                echo "<button class='btn btn-secondary btn-block' disabled>Book rented and in time</button>";
                             }
-                        ?>
-                        <button class="btn btn-danger btn-block" name="deleteBook" type='submit'>Delete</button>
-                    </form>
+                        }else{?>
+                             <form action="includes/functions.php" method="post">
+                                <input type="hidden" name="bookToDelete" value="<?= $bookId; ?>">
+                                <input type="hidden" name="bookStatus" value="<?= $available; ?>">
+                                <?php
+
+                                ?>
+                                <?php 
+                                    if($available == 1){
+                                        echo "<button class='btn btn-secondary btn-block' name='changeAvailability' type='submit'>Make Book Unavailable</button>";
+                                    }else{
+                                        echo "<button class='btn btn-success btn-block' name='changeAvailability' type='submit'>Make Book Available</button>";
+                                    }
+                                ?>
+                                <button class="btn btn-danger btn-block" name="deleteBook" type='submit'>Delete Book</button>
+                            </form> 
+                    <?php
+                        }
+                    ?>
+
                 </div>
             </div>
         </div>

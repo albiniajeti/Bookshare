@@ -25,7 +25,7 @@
     <div class="container">
 
       <!-- Page Heading -->
-        <h1 class="my-4  text-center">We got books</h1>
+        <h1 class="my-4  text-center">Biggest gallery in the universe</h1>
       <div class="row">
         
         <?php
@@ -47,12 +47,18 @@
             $count = mysqli_num_rows($findCount);
           
             if($count < 1) {
-                echo "<h1 class='text-center'>No posts available</h1>";
             } else{
                 $count = ceil($count/8);
-
+                    
                 if(empty($book)){
-                    $query = "select * from books order by id desc limit $page1, 8"; 
+                    if(isset($_SESSION['userId'])){
+                        $user = $_SESSION['userId'];
+                        $query = "select * from books where book_owner != '{$user}' order by id desc limit $page1, 8";
+                    }else{
+                        $query = "select * from books order by id desc limit $page1, 8";
+                    }
+                    $query2 = $query;
+                    $query = $query2;
                 }else{
                     $query = "select * from books where book_name like '%$book%' order by id desc limit $page1, 8";
                 }
@@ -92,11 +98,11 @@
             </li>
              <?php
                 for($i = 1; $i <= $count; $i++){
-                if($i == $page){
-                    echo "<li class='page-item'><a class='currentPage page-link' href='index.php?page={$i}'>{$i}</a></li>";
-                }else{
-                    echo "<li class='page-item'><a class='page-link' href='index.php?page={$i}'>{$i}</a></li>";
-                }
+                    if($i == $page){
+                        echo "<li class='page-item'><a class='active_link page-link' href='index.php?page={$i}'>{$i}</a></li>";
+                    }else{
+                        echo "<li class='page-item'><a class='page-link' href='index.php?page={$i}'>{$i}</a></li>";
+                    }
                 }
             ?>
             <li class="page-item">

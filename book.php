@@ -3,6 +3,7 @@
 
 <?php 
 
+
     if(isset($_GET['bookId'])){
 
         $id = $_GET['bookId'];
@@ -41,18 +42,36 @@
           <h3 class="my-3">Book Description</h3>
           <p><?= $description; ?></p>
             <div style="position: absolute; bottom: 0;">
-                <form action="includes/functions.php" method="post">
-                    <input type="hidden" value="<?= $id; ?>" name="book">
-                    <input type="hidden" value="<?= $owner; ?>" name="owner">
-                    <?php if($available){?>
-                        <button class="btn btn-success btn-block" name="requestBook">Request Book</button>
+            <?php    
+                if(!isset($_SESSION['userId'])){   
+                    
+                }else{
+                    $user = $_SESSION['userId'];
+                    $querry = "SELECT COUNT(*) as count FROM `requests` WHERE book ='{$id}' and asker = '{$user}'";
+                    $count = mysqli_query($connection, $querry);
+                    
+                    while($roww = mysqli_fetch_assoc($count)){
+                        $num = $roww['count'];
+                    }
+                    if($num > 0){?>
+                        <button class="btn btn-secondary btn-block" disabled>Already requested</button>
                     <?php
                     }else{?>
-                        <button class="btn btn-secondary btn-block" disabled>Unavailable</button>
-                    <?php
-                    }
-                    ?>
-                </form>
+                        <form action="includes/functions.php" method="post">
+                        <input type="hidden" value="<?= $id; ?>" name="book">
+                        <input type="hidden" value="<?= $owner; ?>" name="owner">
+                        <?php if($available){?>
+                            <button class="btn btn-success btn-block" name="requestBook">Request Book</button>
+                        <?php
+                        }else{?>
+                            <button class="btn btn-secondary btn-block" disabled>Unavailable</button>
+                        <?php
+                        }
+                        ?>
+                    </form> 
+            <?php
+                }}
+            ?>
             </div>
         </div>
 
@@ -64,7 +83,7 @@
         
       <div class="row">
         <?php
-            $query2 = "SELECT * FROM books ORDER BY id DESC LIMIT 4";
+            $query2 = "SELECT * FROM books where book_owner != '{$user}' ORDER BY id DESC LIMIT 4";
             $results2 = mysqli_query($connection, $query2);
     
             while($row2 = mysqli_fetch_assoc($results2)){

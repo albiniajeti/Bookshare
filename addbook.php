@@ -1,8 +1,12 @@
 <?php include "includes/header.php"; ?>
-<body>
-
 <?php include "includes/menu.php"; ?>    
-    
+  
+<?php
+    if(isset($_GET['message'])){
+        echo "<p class='alert alert-success' style = 'text-align: center';>Your book was added.</p>";
+    }
+?>
+
 <div class="content-wrapper">
     <div class="container">
         <div class="row pad-botm">
@@ -52,7 +56,4 @@
     </div>
 </div>
 
-    <?php include "includes/footer.php"; ?>
-
-</body>
-</html>
+<?php include "includes/footer.php"; ?>

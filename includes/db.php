@@ -7,6 +7,4 @@
 
     $connection = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);
 
-//    if($connection) echo "we are connected";
-
 ?>

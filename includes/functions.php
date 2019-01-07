@@ -27,7 +27,7 @@ if(isset($_POST['newBook'])){
     $addBook = mysqli_query($connection, $query);
     
     if($addBook){
-        header("Location: ../index.php");
+        header("Location: ../addBook.php?message=true");
     }else{
         header("Location: ../index.php");
     }
@@ -77,9 +77,39 @@ if(isset($_POST['changeAvailability'])){
     header("Location: ../myBooks.php");
 }
 
+if(isset($_POST['acceptRequest'])){
+   
+    $request = $_POST['request']; 
+    $book = $_POST['bookId']; 
 
+    $query = "update requests set status = 'accepted' where id = '{$request}'";
+    $result = mysqli_query($connection, $query); 
+    
+    $query2 = "update books set available = '0', expected_at = (DATE_ADD(now(),INTERVAL 2 WEEK)), rented =  '1' where id = '{$book}'";
+    $result2 = mysqli_query($connection, $query2);     
+    
+    header("Location: ../bookrequests.php");
+}
 
+if(isset($_POST['refuseRequest'])){
+   
+    $request = $_POST['request']; 
 
+    $query = "update requests set status = 'refused' where id = '{$request}'";
+
+    $result = mysqli_query($connection, $query);   
+    header("Location: ../bookrequests.php");
+}
+
+if(isset($_POST['reportMissing'])){
+   
+    $book = $_POST['bookToDelete'];
+
+    $query3 = "update books set missing = '1' where id = '{$book}'";
+    $result3 = mysqli_query($connection, $query3); 
+
+    header("Location: ../myBooks.php");
+}
 
 
 

@@ -22,7 +22,7 @@
             </li>
 -->
             <form action = "" method="post">
-                <input class="form-control mr-sm-4" name="search" type="search" placeholder="Search" aria-label="Search">
+                <input class="form-control mr-sm-4" name="search" type="search" placeholder="Search books..." aria-label="Search">
 <!--                <input type="button hidden" name="search">-->
 <!--
                 <div class="input-group">
@@ -49,7 +49,6 @@
                         Settings</a>
                         <div class="dropdown-menu" >
                             <a class="dropdown-item" href="addbook.php">Add Book</a>
-                            <a class="dropdown-item" href="missingbook.php">Report Missing Book</a>
                             <a class="dropdown-item" href="bookrequests.php">Book Requests</a>
                             <a class="dropdown-item" href="editprofile.php">Edit Profile</a>
                             <a class="dropdown-item" href="mybooks.php">My Books</a>

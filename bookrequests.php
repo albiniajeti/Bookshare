@@ -29,7 +29,7 @@ ul {
                 <ul>
                     <?php
                         $giver = $_SESSION['userId'];
-                        $query = "select * from requests where giver = '{$giver}'";
+                        $query = "select * from requests where giver = '{$giver}' and status='pending'";
                         $result = mysqli_query($connection, $query);
                     
                         if(mysqli_num_rows($result) == 0){
@@ -51,15 +51,19 @@ ul {
                             $bookResult = mysqli_query($connection, $bookQuery);
                             
                             while($bookRow = mysqli_fetch_assoc($bookResult)){
-                                $book = $bookRow['book'];
+                                $bookN = $bookRow['book'];
                             }
                     ?>
                             <li><!--Start of First Request--> 
                                 <div class="request">
                                     <div class="user-pic" ;><img src="images/login-user-icon.png" alt="userpic ">
-                                        <div class="user"><a><?= $user; ?> has requested to borrow the book "<?= $book; ?>"</a><br> <br>
-                                            <input class="btn btn-primary" type="submit" value="Accept" />
-                                            <input class="btn btn-danger"  type="submit" value="Refuse" />
+                                        <div class="user"><a><?= $user; ?> has requested to borrow the book "<?= $bookN; ?>"</a><br> <br>
+                                            <form action="includes/functions.php" method="post">
+                                                <input type="hidden" value="<?= $requestId; ?>" name="request">
+                                                <input type="hidden" value="<?= $book; ?>" name="bookId">
+                                                <input class="btn btn-primary" name="acceptRequest" type="submit" value="Accept" />
+                                                <input class="btn btn-danger"  name="refuseRequest" type="submit" value="Refuse" />
+                                            </form>
                                         </div>                   
                                     </div>
                                 </div>
