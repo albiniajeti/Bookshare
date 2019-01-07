@@ -50,9 +50,9 @@
                         <div class="dropdown-menu" >
                             <a class="dropdown-item" href="addbook.php">Add Book</a>
                             <a class="dropdown-item" href="bookrequests.php">Book Requests</a>
-                            <a class="dropdown-item" href="editprofile.php">Edit Profile</a>
                             <a class="dropdown-item" href="rented.php">Rented</a>
                             <a class="dropdown-item" href="mybooks.php">My Books</a>
+                            <a class="dropdown-item" href="editprofile.php">Edit Profile</a>                        
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="logout.php">Sign Out</a>
                           </div>

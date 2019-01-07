@@ -116,7 +116,7 @@ if(isset($_POST['returnBook'])){
     
     $book = $_POST['book'];
     
-    $query = "update books set available = '1', expected_at = '0000-00-00', rented = '0', missing = '0', book_renter = '' where id = '{$book}'";
+    $query = "update books set available = '0', expected_at = '0000-00-00', rented = '0', missing = '0', book_renter = '' where id = '{$book}'";
     $results = mysqli_query($connection, $query);
     
     if($results){

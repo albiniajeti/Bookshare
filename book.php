@@ -34,8 +34,8 @@
       <!-- Portfolio Item Row -->
       <div class="row">
 
-        <div class="col-md-8">
-          <img class="img-fluid" src="images/<?= $image; ?>" alt="">
+        <div class="col-md-8" >
+          <img class="img-fluid" src="images/<?= $image; ?>" alt="" style="max-height: 500px;">
         </div>
 
         <div class="col-md-4" style="position: relative;">

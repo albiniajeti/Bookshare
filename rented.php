@@ -34,9 +34,9 @@
         ?>
         <div class="row" >
             <div class="col-md-7">
-              <a href="">
+<!--              <a href="">-->
                 <img class="img-thumbnail" style="max-width:300px;" src="images/<?= $bookImage; ?>" alt="">
-              </a>
+<!--              </a>-->
             </div>
             <div class="col-md-5" style="position: relative;">
               <h3><?= $bookTitle; ?></h3>
